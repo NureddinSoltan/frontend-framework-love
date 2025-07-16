@@ -1,5 +1,5 @@
 {
-  "jobs":[
+  "jobs": [
     {
       "id": "1",
       "title": "Senior React Developer",
@@ -16,7 +16,7 @@
     },
     {
       "id": "2",
-      "title": "Front-End Engineer (React & Redux)",
+      "title": "Front-End Engineer (React & Redux) edited ok",
       "type": "Full-Time",
       "location": "Miami, FL",
       "description": "Join our team as a Front-End Developer in sunny Miami, FL. We are looking for a motivated individual with a passion for crafting beautiful and responsive web applications. Experience with UI/UX design principles and a strong attention to detail are highly desirable.",
@@ -30,7 +30,7 @@
     },
     {
       "id": "3",
-      "title": "React.js Dev",
+      "title": "React.js Dev edited v6",
       "type": "Full-Time",
       "location": "Brooklyn, NY",
       "description": "Are you passionate about front-end development? Join our team in vibrant Brooklyn, NY, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
@@ -82,6 +82,202 @@
         "description": "Port Solutions is a leading technology company specializing in software development and digital marketing. We are committed to providing our clients with cutting-edge solutions and our employees with a supportive and rewarding work environment.",
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
+      }
+    },
+    {
+      "id": "9c15",
+      "title": "wef",
+      "type": "Full-Time",
+      "location": "wef",
+      "description": "wef",
+      "salary": "Under $50K",
+      "company": {
+        "name": "wef",
+        "description": "wef",
+        "contactEmail": "noureldien@gmail.com",
+        "contactPhone": "05314054213"
+      }
+    },
+    {
+      "id": "0594",
+      "title": "Add with toast",
+      "type": "Full-Time",
+      "location": "Toast.UK",
+      "description": "toast is here",
+      "salary": "$60K - 70K",
+      "company": {
+        "name": "Toast with banan",
+        "description": "Loving Toast",
+        "contactEmail": "toast@fmaul.com",
+        "contactPhone": "487943653654"
+      }
+    },
+    {
+      "id": "ae2d",
+      "title": "wfef",
+      "type": "Full-Time",
+      "location": "wefsdfss",
+      "description": "wef",
+      "salary": "Under $50K",
+      "company": {
+        "name": "wefwef",
+        "description": "ewf",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": "05314054213"
+      }
+    },
+    {
+      "id": "048b",
+      "title": "wef",
+      "type": "Full-Time",
+      "location": "wef",
+      "description": "wef",
+      "salary": "Under $50K",
+      "company": {
+        "name": "",
+        "description": "",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "d168",
+      "title": "wef",
+      "type": "Full-Time",
+      "location": "wef",
+      "description": "",
+      "salary": "Under $50K",
+      "company": {
+        "name": "wef",
+        "description": "",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "2b77",
+      "title": "wef",
+      "type": "Full-Time",
+      "location": "wef",
+      "description": "wef",
+      "salary": "Under $50K",
+      "company": {
+        "name": "",
+        "description": "",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "c035",
+      "title": "wef",
+      "type": "Full-Time",
+      "location": "wef",
+      "description": "wef",
+      "salary": "Under $50K",
+      "company": {
+        "name": "wef",
+        "description": "",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "301e",
+      "title": "Test om al console",
+      "type": "Full-Time",
+      "location": "İstanbul, TUR",
+      "description": "",
+      "salary": "Under $50K",
+      "company": {
+        "name": "wef",
+        "description": "wef",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": "wef"
+      }
+    },
+    {
+      "id": "866b",
+      "title": "Ommmo",
+      "type": "Full-Time",
+      "location": "wef",
+      "description": "wef",
+      "salary": "Under $50K",
+      "company": {
+        "name": "",
+        "description": "wef",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "17ea",
+      "title": "wef",
+      "type": "Full-Time",
+      "location": "wfe",
+      "description": "few",
+      "salary": "Under $50K",
+      "company": {
+        "name": "",
+        "description": "",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": "wef"
+      }
+    },
+    {
+      "id": "5fdc",
+      "title": "wefw",
+      "type": "Full-Time",
+      "location": "wfe",
+      "description": "wef",
+      "salary": "Under $50K",
+      "company": {
+        "name": "wef",
+        "description": "wef",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "bcc8",
+      "title": "fvfd",
+      "type": "Full-Time",
+      "location": "dfbv",
+      "description": "dfb",
+      "salary": "Under $50K",
+      "company": {
+        "name": "dfb",
+        "description": "",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "3cbd",
+      "title": "I'm gonna edit that",
+      "type": "Full-Time",
+      "location": "erg",
+      "description": "re",
+      "salary": "Under $50K",
+      "company": {
+        "name": "erg",
+        "description": "",
+        "contactEmail": "noureldien@gmail.com",
+        "contactPhone": "My phone is here :)"
+      }
+    },
+    {
+      "id": "3446",
+      "title": "I'm adding a job here",
+      "type": "Full-Time",
+      "location": "İstanbul, TUR",
+      "description": "الحمدلله",
+      "salary": "Under $50K",
+      "company": {
+        "name": "",
+        "description": "So halal mode",
+        "contactEmail": "wef@gmail.com",
+        "contactPhone": "487943653654"
       }
     }
   ]
