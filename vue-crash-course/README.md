@@ -1,29 +1,74 @@
-# vue-crash-course
+# frontend-framework-love
 
-This template should help get you started developing with Vue 3 in Vite.
+Here's the Vue Project that I built to explore the Vue Framework
 
-## Recommended IDE Setup
+In this project we have:
+- Crud Operation.
+- Exploring Vue Ecosystems.
+- Exploring Vue composition api vs options api
+- Exploring Vue folder structure (components, router, views)
+- Using Toastify.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Getting Started
 
-## Customize configuration
+This project uses **Vue + Vite** for the frontend, and assumes a backend/API server runs on **port 8000**.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Prerequisites
 
-## Project Setup
+- Node.js
+- npm
 
-```sh
-npm install
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/NureddinSoltan/frontend-framework-love.git
+    ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Running the Backend Server
+
+To start the backend server (running on port `8000`):
+
+```bash
+npm run server
 ```
 
-### Compile and Hot-Reload for Development
+Make sure port 8000 is not already in use.
 
-```sh
+### Running the Frontend (Vite)
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+-----
 
-```sh
+
+### Building for Production
+
+To build the frontend for production:
+
+```bash
 npm run build
 ```
+
+This will generate the static files in the `dist` folder.
+
+### Previewing the Build
+
+To locally preview the production build:
+
+```bash
+npm run preview
+```
+---
+*Good Luck :)*
