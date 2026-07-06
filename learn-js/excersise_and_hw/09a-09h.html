@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 09a-09b -->
+  <button class="">9a</button>
+  <button class="js-button">9b</button>
+  <!-- ----------------------------------------------------------------- -->
+  <!-- 09b -->
+  <hr>
+  <button class="js-heads" onclick="
+  document.querySelector('.js-heads-or-tails').innerHTML = 'Heads'
+  ">Heads</button>
+
+  <button class="js-Tails" onclick="
+    document.querySelector('.js-heads-or-tails').innerHTML = 'Tails'
+    ">Tails</button>
+
+  <p class="js-heads-or-tails"></p>
+  <hr>
+  <!-- ----------------------------------------------------------------- -->
+  <!-- 09d-09e -->
+  <input type="text" class="js-name" placeholder="name" onkeydown="
+  if (event.key === 'Enter'){
+    printName()
+  }
+  ">
+  <button onclick="
+  printName()
+  ">Submit</button>
+
+  <p class="js-print-name"></p>
+  <hr>
+  <!-- ----------------------------------------------------------------- -->
+
+  <!-- 09h -->
+  <input type="text" class="js-same" placeholder="Type something" onkeyup=" 
+  const eventKey = document.querySelector('.js-same').value
+  document.querySelector('.js-print-input').innerHTML = eventKey
+  ">
+  <p class="js-print-input"></p>
+
+  <!-- ----------------------------------------------------------------- -->
+  <script>
+    console.log(document.querySelector('button'));
+    console.log(document.querySelector('.js-button').innerHTML = "9b Done!")
+
+    function printName() {
+      const name = document.querySelector('.js-name').value
+      document.querySelector('.js-print-name').
+        innerHTML = `Your name is: ${name}`
+    }
+
+  </script>
+</body>
+
+</html

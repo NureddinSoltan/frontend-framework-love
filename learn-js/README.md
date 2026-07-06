@@ -395,3 +395,112 @@ const object5 = {
 console.log(object5);
 object5.method();
 ```
+
+-----
+# 9. DOM (Document Object Model)
+
+The DOM is a built-in object. It combines JS and HTML together and gives JS full control of the webpage.
+
+## Some methods
+
+### document.body
+
+Lets us get the body element and put it inside our JS.
+
+```js
+console.log(document.body);
+console.log(typeof document.body);
+
+console.log(document.body.innerHTML);
+document.body.innerHTML = '<button> Good job! </button>';
+```
+
+### document.querySelector()
+
+Lets us get any element from the page and put it inside JS.
+
+Every HTML element has a property called `.innerHTML`.
+
+```html
+<body>
+  <button>hello</button>
+  <button class="js-button">Second Button</button>
+
+  <script>
+    console.log(document.querySelector('button').innerHTML);
+    document.querySelector('button')
+      .innerHTML = 'Changed';
+
+    const buttonElement = document.querySelector('.js-button');
+    console.log(buttonElement);
+  </script>
+</body>
+```
+
+### innerHTML
+
+Modifies the HTML inside the element.
+
+## innerText vs innerHTML
+
+One of the differences is:
+
+- `innerText` gives us just the text, without extra spaces.
+- `innerHTML` gives us the text with the spaces.
+
+```html
+<p>YouTube Subscribe Button</p>
+<button onclick="
+  const buttonElement = document.querySelector('.js-subscribe-button');
+
+  console.log('innerHTML:', JSON.stringify(buttonElement.innerHTML));
+  console.log('innerText:', JSON.stringify(buttonElement.innerText));
+
+  if (buttonElement.innerText === 'Subscribe') {
+    buttonElement.innerHTML = 'Subscribed';
+  } else {
+    buttonElement.innerHTML = 'Subscribe';
+  }
+" class="js-subscribe-button">
+  Subscribe
+</button>
+```
+
+### onkeydown = '...'
+
+`onkeydown` is an HTML attribute that runs a JS function the exact moment a user presses down any key on their keyboard.
+
+## Notes
+
+- `click`, `keydown` => **events**
+- `onclick`, `onkeydown` => **event listeners**
+
+- Every event listener gets an **event object**.
+- There are more event listeners available in JS in general.
+
+- Whenever we get a value from the DOM, the value will be a **string**.
+- To convert a string into a number, use the `Number` function. To convert a number into a string, use the `String` function.
+
+```js
+Number('25');
+String(25);
+```
+
+> If a string only contains a number, and we use `-`, `*`, or `/`, it will be converted into a number. But `+` is different, because it's also used to join strings together.
+
+```js
+console.log('25' - 5); // 20     (Number)
+console.log('25' + 5); // '255'  (String)
+```
+
+## Window object
+
+`window` is a built-in object that represents the browser. We don't have to type `window.` because JS does that automatically, but it's nice to know how things work behind the scenes.
+
+```js
+window.document;
+window.console.log('window');
+window.alert('er');
+```
+
+----
