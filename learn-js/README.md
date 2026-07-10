@@ -504,3 +504,39 @@ window.alert('er');
 ```
 
 ----
+# 10. HTML, CSS and JavaScript Together
+
+Every element has a `.classList` property, which lets us control its `class` attribute.
+
+## Methods
+
+| Method | What it does |
+|---|---|
+| `.add('name')` | Adds the class |
+| `.remove('name')` | Removes the class |
+| `.toggle('name')` | Adds it if missing, removes it if present |
+| `.contains('name')` | Returns `true` or `false` |
+
+## Example
+
+```js
+function toggleButton(button) {
+  button.classList.toggle('is-toggled');
+}
+```
+
+Without `.toggle()`, the same thing written out:
+
+```js
+function toggleButton(button) {
+  if (button.classList.contains('is-toggled')) {
+    button.classList.remove('is-toggled');
+  } else {
+    button.classList.add('is-toggled');
+  }
+}
+```
+
+Clicking the button adds the class, which applies different styles. Clicking again removes it.
+
+---
