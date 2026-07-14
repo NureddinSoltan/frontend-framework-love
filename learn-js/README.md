@@ -510,12 +510,12 @@ Every element has a `.classList` property, which lets us control its `class` att
 
 ## Methods
 
-| Method | What it does |
-|---|---|
-| `.add('name')` | Adds the class |
-| `.remove('name')` | Removes the class |
-| `.toggle('name')` | Adds it if missing, removes it if present |
-| `.contains('name')` | Returns `true` or `false` |
+| Method              | What it does                              |
+|---------------------|-------------------------------------------|
+| `.add('name')`      | Adds the class                            |
+| `.remove('name')`   | Removes the class                         |
+| `.toggle('name')`   | Adds it if missing, removes it if present |
+| `.contains('name')` | Returns `true` or `false`                 |
 
 ## Example
 
@@ -540,3 +540,118 @@ function toggleButton(button) {
 Clicking the button adds the class, which applies different styles. Clicking again removes it.
 
 ---
+# 11. Arrays and Loops
+## Arrays
+- A type of value that represents a list of values.
+- Can hold any type of value.
+- Arrays are references.
+```js
+  const array1 = [1,2,3];
+  const array2 = array1;
+  array2.push(4);
+  console.log(array1)
+  console.log(array2)
+```
+but if we use .slice it will copy the value.
+```js
+  const array1 = [1,2,3];
+  const array2 = array1.slice();
+  array2.push(4);
+  console.log(array1)
+  console.log(array2)
+```
+**`slice` vs `splice`**
+- `slice(start, end)` is **immutable**. Returns a copy, leaves the original unchanged.
+- `splice(start, deleteCount, ...items)` is **mutable**. Changes the original array in place.
+```js
+const arr = [1, 2, 3, 4, 5];
+arr.slice(1, 3);   // [2, 3], arr unchanged: [1, 2, 3, 4, 5]
+arr.splice(1, 2);  // [2, 3], arr mutated:   [1, 4, 5]
+```
+## Loops
+Three parts of a loop:
+1. **Loop variable** (e.g. `i`).
+2. **Loop condition** (inside the round brackets).
+3. **Increment step** (updates the loop variable each pass).
+The code inside the curly brackets is the **loop body**.
+## While vs For
+- **Standard loop** => `for`. We know how many times we'll iterate.
+- **Non-standard loop** => `while`. We don't know how many iterations it takes.
+```js
+// We use while because we don't know how many
+// tries it takes to get a number >= 0.5.
+let randomNumber = 0;
+while (randomNumber < 0.5) {
+  randomNumber = Math.random();
+  console.log(randomNumber);
+}
+```
+## Accumulator Pattern
+1. Create a variable to store the result.
+2. Loop through the array and update it.
+```js
+const nums = [1, 1, 3];
+let total = 0;
+for (let i = 0; i < nums.length; i++) {
+  total += nums[i];
+}
+console.log(total); // 5
+let numsDoubled = [];
+for (let i = 0; i < nums.length; i++) {
+  numsDoubled.push(nums[i] * 2);
+}
+console.log(numsDoubled); // [2, 2, 6]
+```
+## Destructuring
+A shortcut for pulling values out of an array into variables.
+```js
+const [firstValue, secondValue] = [1, 2, 3];
+// firstValue = 1, secondValue = 2 (the 3 is ignored)
+```
+## More Features of Loops
+### Break
+- `break` lets us exit the loop early.
+```js
+for (let i = 1; i <= 10; i++) {
+  if (i % 3 === 0) {
+    continue;
+  }
+  console.log(i)
+  if (i === 8) {
+    break;
+  }
+}
+```
+### Continue
+- `continue` lets us skip one iteration.
+```js
+let i = 1
+while (i <= 10) {
+  if (i % 3 === 0) {
+    i++;
+    continue
+  }
+  console.log(i)
+  i++
+}
+```
+## Generating HTML
+
+Instead of writing all the HTML by hand, we can generate it with template strings.
+This is useful for building HTML from a list of values in a loop.
+
+```js
+const todos = ['wash', 'cook', 'clean'];
+let html = '';
+
+for (let i = 0; i < todos.length; i++) {
+  html += `<p>${todos[i]}</p>`;
+}
+// html is now "<p>wash</p><p>cook</p><p>clean</p>"
+```
+
+## The Main Idea of JS
+
+1. Save the data.
+2. Generate the HTML.
+3. Make it interactive.
