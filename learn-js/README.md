@@ -655,3 +655,349 @@ for (let i = 0; i < todos.length; i++) {
 1. Save the data.
 2. Generate the HTML.
 3. Make it interactive.
+
+---
+# 12. Advanced Functions
+
+Functions are values. Anything we can do with a value, we can also do with a function.
+
+## Functions as Values
+
+The function syntax we've been using the entire course is actually a shortcut. We can also save a function inside a variable, which is called an **anonymous function**:
+
+```js
+// what we've been writing
+function greeting() {
+  console.log('hello')
+}
+
+// what it's a shortcut for
+var greeting = function() {
+  console.log('hello')
+}
+```
+
+But the syntax we were writing has a lot of advantages:
+
+1. **Easier to read.**
+2. **Hoisting**, which means we can call the function before creating it, so we don't have to worry about where we write the code.
+
+```js
+greeting()
+
+function greeting() {
+  console.log('hello')
+}
+```
+
+**Hoisting** doesn't work when we save the function inside a variable.
+
+### Saving a function in an object (method)
+
+```js
+const object1 = {
+  num: 2,
+  fun: function greeting() {
+    console.log('hello3')
+  }
+}
+object1.fun()
+
+// As there's a way to access the function we don't need the function name,
+// we can delete it, like this:
+const object1 = {
+  num: 2,
+  fun: function() {
+    console.log('hello3')
+  }
+}
+object1.fun()
+```
+
+This is called a **method** (a function saved inside an object).
+
+### Passing a function into a function
+
+What else can we do with a value? We can pass it into a function. And since functions are values, we can pass a function into a function too.
+
+```js
+// passing a value into a function
+function display(param) {
+  console.log(param)
+}
+display(2)
+
+// passing a function into a function, the function we pass in is a callback function
+function run(param) {
+  param()
+}
+run(function() {
+  console.log('hello4')
+})
+```
+
+The function we're passing in is called a **callback function**.
+
+## setTimeout()
+
+Allows us to run a function in the future. Takes 2 parameters:
+
+1. The function we want to run in the future.
+2. How long to wait before running it (a number in milliseconds, 1000 milliseconds = 1 second).
+
+### Asynchronous Code
+
+**Asynchronous code won't wait** for a line to finish before going to the next line.
+
+```js
+// Here it will set the timer and immediately go to the next line.
+setTimeout(function() {
+  console.log('timeout')
+}, 3000)
+
+console.log('next line')
+```
+
+The advantage of setTimeout being asynchronous is that it doesn't block our code for 3 seconds. It just sets the timer in the background and then goes to the next line of code.
+
+It's similar to an alarm on your phone. If you set a timer, you're not going to stop and wait for it, you'll go do something else until it finishes.
+
+### Synchronous Code
+
+**Synchronous code will wait** for one line to finish before going to the next line.
+
+## setInterval()
+
+Keeps running the function every selected period of time. It's also asynchronous.
+
+- Returns a number, and this number is an **ID**.
+- We can use it to stop the interval with `clearInterval(intervalId)`.
+
+```js
+// Start the interval and save its ID
+let intervalId = setInterval(function() {
+  console.log('interval')
+}, 3000)
+
+// Later, stop it using the saved ID
+clearInterval(intervalId)
+```
+
+
+## Loop through an array with .forEach()
+
+Arrow-function version (first param is the value, second is the index):
+
+```js
+[
+  'make dinner',
+  'wash dishes',
+  'watch youtube',
+].forEach((value, index) => {
+  // return works like continue
+  if (value === 'wash dishes') {
+    return
+  }
+  console.log(index)
+  console.log(value)
+})
+```
+
+- Here we're passing a function into another function.
+- Step by step, it takes each value, saves it to the parameter, and runs the function. Then it takes the second value, saves it to the parameter, runs the function, and so on.
+- It has 2 features: **index** and **value**.
+- `.forEach()` is the preferred way to loop through an array. It's easier to read than:
+
+```js
+// regular way
+for (let i = 0; i < array.length; i++) {
+  const value = array[i]
+  console.log(value)
+}
+```
+
+### continue and break
+
+`forEach()` doesn't have **continue**, but we can do the same thing with a `return` statement, like in the example above.
+
+For **break**, unfortunately there's no `break` in a `forEach()` loop. So if we need to use `break`, it's better to use a regular `for` loop.
+
+## Arrow Function
+Mostly works the same as a regular function, but it's a shorter way of writing a regular function with some shortcuts.
+```js
+    const arrowFunction = () => {
+      console.log('hello');
+    };
+
+    const regularFunction = function() {
+      console.log('hello');
+    };
+```
+These two syntaxes do the same thing, just without using the word `function`. Use the arrow `=>` instead. Also, parameters work the same way with an arrow function, and we return the same way that we return in a regular function.
+
+### Arrow functions have shortcuts that regular functions don't have.
+- We can write a one-line arrow function: if the body is a single expression (no braces), it automatically returns the result on the right.
+```js
+    // Implicit return: no braces, no `return` keyword needed
+    const oneLine = () => 2 + 3;
+
+    // Same thing written the long way
+    const oneLine = () => {
+      return 2 + 3;
+    };
+```
+- When we pass a function into another function, it's recommended to use an arrow function `=>`, which makes our code easier to read.
+
+Example
+```js
+    [
+      'make dinner',
+      'wash dishes',
+      'watch youtube',
+//  ].forEach(function (value, index) {   // the old way
+    ].forEach((value, index) => {         // cleaner with an arrow
+      if (value === 'wash dishes') {
+        return; // skips only this item, like `continue` in a loop
+      }
+    });
+```
+
+- Arrow functions don't support hoisting, btw. Only function declarations are fully hoisted and callable before their definition.
+
+Also, we can use arrow functions inside an object like this, but there's a `shorthand method` syntax that objects have which is simpler and easier to read:
+
+```js
+    const object2 = {
+      method: () => {
+        // Arrow function as a value
+        // Note: an arrow function does NOT get its own `this`,
+        // so this is usually a bad choice for object methods
+      },
+      method2() {
+        // Short-hand method syntax (easier to read, and `this` works normally)
+      },
+    };
+```
+
+## `.addEventListener()`
+Has two parameters:
+1. event: what type of interaction we want to listen to.
+2. A function we want to run when that event happens.
+
+`addEventListener` gives us more control over event listening:
+- We can add multiple event listeners to the same element.
+- We can remove a listener later.
+> It's best practice to use `.addEventListener()` instead of `onclick = "..."`.
+
+Example
+```js
+    const buttonElement = document.querySelector('.js-button');
+
+    // Naming the handler so we can remove it later.
+    // (An inline arrow can't be removed, because removeEventListener
+    //  wouldn't have a reference to the same function.)
+    function handleClick() {
+      console.log('click');
+    }
+
+    // Adding it
+    buttonElement.addEventListener('click', handleClick);
+
+    // Removing it: must pass the SAME function reference
+    buttonElement.removeEventListener('click', handleClick);
+```
+- We can remove an event listener using `.removeEventListener()`.
+
+- `addEventListener` has a lot of event types. Some common ones:
+
+```js
+element.addEventListener("mouseover", handler);  // pointer enters
+element.addEventListener("mouseout", handler);   // pointer leaves
+element.addEventListener("keydown", handler);    // key pressed
+element.addEventListener("input", handler);      // text field changes
+element.addEventListener("submit", handler);     // form submitted
+element.addEventListener("scroll", handler);     // element scrolled
+element.addEventListener("load", handler);       // resource finished loading
+```
+
+Example:
+```js
+// Use a keydown event to control the rock-paper-scissors game.
+// The browser passes the event object in automatically. We named it `event`.
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'r') {
+    playGame('rock');
+  } else if (event.key === 'p') {
+    playGame('paper');
+  } else if (event.key === 's') {
+    playGame('scissors');
+  }
+});
+```
+
+## Filter
+
+1. Creates a new array.
+2. Callback returns `true` => keep the value in the new array.
+3. Callback returns `false` => leave the value out.
+
+Important: the `true`/`false` is only the *decision*. It is NOT what gets added — the **original value** goes into the new array when the callback returns `true`.
+
+```js
+let eggCount = 0;
+
+food.filter((value) => {
+  if (value === 'egg' && eggCount < 2) {
+    eggCount++;
+    return false; // "drop this one" — does NOT insert `false`
+  }
+  return true;    // "keep this one" — the original `value` is added, not `true`
+});
+```
+
+(The callback returns `true`/`false`; `filter` itself returns the new array.)
+
+```js
+console.log([1, -3, 5].filter((value) => {
+  // Same as writing:
+  // if (value >= 0) { return true; } else { return false; }
+  return value >= 0; // true for 1 and 5, false for -3
+}));
+// Result: [1, 5]
+```
+
+
+## Map
+1. Creates a new array `[]`.
+2. Whatever the callback returns => added to the new array (same length as the original).
+```js
+    console.log([1, 1, 3].map((value, index) => {
+      return value * 2; // transform each item
+    }));
+    // Result: [2, 2, 6]
+```
+
+## Closure
+- If a function has access to a value
+- It will always have access to that value
+
+```js
+    // 1. The OUTER function
+    function outerFunction() {
+      let outerVariable = "I am outside!";
+
+      // 2. The INNER function
+      function innerFunction() {
+        console.log(outerVariable); // still remembers the outer value
+      }
+
+      return innerFunction;
+    }
+
+    const myClosure = outerFunction(); // outer runs and finishes here
+    myClosure(); // "I am outside!" — still remembers outerVariable
+```
+
+Even though `outerFunction` already finished, the inner function still remembers `outerVariable`. That's a closure.
+
+------

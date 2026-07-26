@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title class="js-title-message">Document</title>
+</head>
+
+<body>
+  <!----------------------------- 12c - 12d ----------------------------->
+  <button onclick="
+  updateButton()
+  " class="js-button">
+    start
+  </button>
+
+  <!----------------------------- 12e - 12f ----------------------------->
+  <hr>
+  <button onclick="
+  displayMessage()
+  " class="js-cart-button">
+    Add to card
+  </button>
+  <p class="js-message"></p>
+
+  <!----------------------------- 12h -  ----------------------------->
+  <hr>
+  <button onclick="
+  addMessage()
+  " class="js-add-button">
+    Add
+  </button>
+  <button onclick="
+  removeMessage()
+  " class="js-remove-button">
+    Remove
+  </button>
+
+  <script>
+    // 12a - 12b
+    const add = function () {
+      console.log(2 + 3)
+    };
+
+    add();
+    add();
+
+    // 12b
+    const runTwice = function (fun) {
+      fun()
+      fun()
+    }
+    runTwice(function () {
+      console.log('12b')
+    })
+
+    runTwice(add)
+
+    console.log('---------------------------------------------------------------')
+    // 12c - 12d
+    function updateButton() {
+      const button = document.querySelector('.js-button');
+
+      button.innerHTML = "Loading..."
+      setTimeout(function () {
+        button.innerHTML = "Finished!"
+      },
+        1000
+      )
+    }
+
+    console.log('---------------------------------------------------------------')
+    // 12e - 12f
+    let timeoutId;
+    function displayMessage() {
+      // const button = document.querySelector('.js-cart-button');
+      const messageElement = document.querySelector('.js-message');
+
+      clearTimeout(timeoutId)
+      messageElement.innerHTML = "Added"
+      timeoutId = setTimeout(function () {
+        isTimerActive = false;
+        messageElement.innerHTML = ""
+      },
+        2000
+      )
+      isTimerActive = true;
+    }
+
+    console.log('---------------------------------------------------------------')
+    // 12g - 12i
+
+    // My way
+    // let showDefault = true
+    // function titleMessage() {
+    //   intervalId = setInterval(function () {
+    //     if (showDefault) {
+    //       document.title = '(2) New messages'
+    //       console.log('koko')
+    //       showDefault = false
+    //     }
+    //     else {
+    //       document.title = 'Document'
+    //       console.log('soso')
+    //       showDefault = true
+    //     }
+    //   }, 1000)
+    // }
+
+    // Another way
+    let message = 2
+    let intervalID
+    function titleMessage() {
+      intervalID = setInterval(function () {
+        if (document.title === 'Document') {
+          document.title = `(${message}) New messages`;
+        } else {
+          document.title = 'Document';
+        }
+      }, 1000);
+    }
+    titleMessage()
+
+    function addMessage() {
+      message++
+      if (!intervalID) {
+        titleMessage()
+      }
+    }
+
+    function removeMessage() {
+      if (message > 0) {
+        message--;
+      }
+      if (message === 0) {
+        // document.title = 'App'
+        stopNotification()
+      }
+    }
+
+    function stopNotification() {
+      clearInterval(intervalID)
+      intervalID = false
+
+      document.title = 'App'
+    }
+
+    // Alternative solution | instructor one
+    // let message = 2
+    // let intervalID
+    // let isDisplayingNotification
+
+    // titleMessage()
+
+    // function titleMessage() {
+    //   if (isDisplayingNotification) {
+    //     return
+    //   }
+
+    //   isDisplayingNotification = true
+    //   intervalID = setInterval(function () {
+    //     if (document.title === 'Document') {
+    //       document.title = `(${message}) New messages`;
+    //     } else {
+    //       document.title = 'Document';
+    //     }
+    //   }, 1000);
+    // }
+
+    // function addMessage() {
+    //   message++
+    //   titleMessage()          // guard inside handles "already running"
+    // }
+
+    // function removeMessage() {
+    //   if (message > 0) {
+    //     message--;
+    //     if (message === 0) {  // nested — only fires on 1→0
+    //       stopNotification()
+    //     }
+    //   }
+    // }
+
+    // function stopNotification() {
+    //   isDisplayingNotification = false
+    //   clearInterval(intervalID)
+    //   document.title = 'App'
+    // }
+
+  </script>
+</body>
+
+</html>
