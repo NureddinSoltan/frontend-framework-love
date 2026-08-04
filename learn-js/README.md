@@ -1001,3 +1001,56 @@ console.log([1, -3, 5].filter((value) => {
 Even though `outerFunction` already finished, the inner function still remembers `outerVariable`. That's a closure.
 
 ------
+
+# 13. Start the amazon project. 
+
+## Main idea of JavaScript
+1. Save the data.
+2. Generate the HTML.
+3. Make it interactive.
+
+> Best practice when calculating money: calculate in cents instead of dollars
+
+## Data Attribute:
+- is just another HTML attribute
+- allows us to attach any information to an element
+
+Example of use:
+- to know which product to add
+
+### Syntax for a Data attribute
+- is just an HTML attribute
+- has to start with `data-`
+- then give it any name, separating words with dashes, known as `kebab-case`
+
+```html
+data-product-name="${product.name}"
+```
+
+### Reading it in JavaScript
+`dataset` is how JavaScript reads custom `data-*` attributes on an element. It converts `kebab-case` to `camelCase`.
+
+```html
+<button class="js-add-to-cart" data-product-id="e43638ce-6aa0-4b85-b27f-e1d07eb678c6">
+  Add to Cart
+</button>
+```
+
+```js
+button.dataset.productId // "e43638ce-6aa0-4b85-b27f-e1d07eb678c6"
+```
+
+> The values we get from the DOM are strings by default.
+
+Why useful: all buttons look identical in the DOM, so `data-product-id` tags each one with its own product's ID. In the click handler, `button.dataset.productId` tells you which product was clicked.
+
+```js
+<button class="add-to-cart-button button-primary js-add-to-cart"
+  data-product-id="${product.id}">
+  Add to Cart
+</button>
+```
+
+Can store any extra data this way: `data-category`, `data-in-stock`, etc.
+
+-----
