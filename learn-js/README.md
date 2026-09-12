@@ -1054,3 +1054,21 @@ Why useful: all buttons look identical in the DOM, so `data-product-id` tags eac
 Can store any extra data this way: `data-category`, `data-in-stock`, etc.
 
 -----
+
+# 14. Modules
+A module basically contains a variable inside a file so now this variable won't cause any conflicts with anything outside the file. 
+
+## Create a Module
+1. Create a file.
+2. Don't load the file with <script> 
+Any variables we create inside te file, will be contained inside the file. 
+
+## Get a variable out of a File
+1. Add type="module" attribute (Let's this file get variables out of other fiels)
+2. Export
+3. Import
+
+## Benifits of Modules
+1. Helps us avoid naming conflicts.
+2. Don't have to worry about the order of the files. 
+3. 
