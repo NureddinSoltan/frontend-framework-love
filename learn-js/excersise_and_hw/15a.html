@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script type="module">
+    // 15 a
+    import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs@1.11.23/+esm'
+
+    const today = dayjs().add(5, 'day').format("MMMM D")
+    console.log(today)
+
+    // 15 b
+    const monthAfter = dayjs().add(1, 'month').format('MMMM D')
+    console.log(monthAfter)
+
+    // 15 c
+    const monthBefore = dayjs().subtract(1, 'month').format('MMMM D')
+    console.log(monthBefore)
+
+    // 15 d
+    const DayOfWeek = dayjs().format('dddd')
+    console.log(DayOfWeek)
+
+    // 15 e
+    const isWeekend = (date) => {
+      if (date === 'Sunday' || date === 'Saturday') {
+        return "Ok here we're"
+      }
+      else {
+        return "get out of here"
+      }
+    }
+    console.log(isWeekend(DayOfWeek))
+    
+    
+  </script>
+</body>
+
+</html>
