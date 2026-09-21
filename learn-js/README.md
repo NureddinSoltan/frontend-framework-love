@@ -1,3 +1,9 @@
+# The Main Idea of JS
+
+1. Save the data (Model).
+2. Generate the HTML (View).
+3. Make it interactive (Controller).
+
 # 5. Variables
 
 Three ways to define variables: `let`, `const`, `var`
@@ -652,9 +658,9 @@ for (let i = 0; i < todos.length; i++) {
 
 ## The Main Idea of JS
 
-1. Save the data.
-2. Generate the HTML.
-3. Make it interactive.
+1. Save the data (Model).
+2. Generate the HTML (View).
+3. Make it interactive (Controller).
 
 ---
 # 12. Advanced Functions
@@ -1005,9 +1011,9 @@ Even though `outerFunction` already finished, the inner function still remembers
 # 13. Start the amazon project. 
 
 ## Main idea of JavaScript
-1. Save the data.
-2. Generate the HTML.
-3. Make it interactive.
+1. Save the data (Model).
+2. Generate the HTML (View).
+3. Make it interactive (Controller).
 
 > Best practice when calculating money: calculate in cents instead of dollars
 
@@ -1060,8 +1066,7 @@ A module basically contains a variable inside a file so now this variable won't 
 
 ## Create a Module
 1. Create a file.
-2. Don't load the file with <script> 
-Any variables we create inside te file, will be contained inside the file. 
+2. Don't load the file with &lt;script&gt; Any variables we create inside te file, will be contained inside the file.
 
 ## Get a variable out of a File
 1. Add type="module" attribute (Let's this file get variables out of other fiels)
@@ -1071,4 +1076,90 @@ Any variables we create inside te file, will be contained inside the file.
 ## Benifits of Modules
 1. Helps us avoid naming conflicts.
 2. Don't have to worry about the order of the files. 
-3. 
+
+
+-----
+# 15. External Libraries
+
+## Why do we use external libraries?
+- They let us share code.
+- They save time.
+- They avoid duplicating work.
+
+## Best Practice
+When we need something complicated:
+- Try to find an external library first,
+- before writing the code ourselves.
+
+> The problem with script tags is that they run the code directly on the page, which causes naming conflicts.
+> A better way to load external libraries is to use a JS module, because a module keeps the code inside a file, and any variable created inside that file won't conflict with anything outside that file.
+
+To use external libraries and JS modules together, we use a special version of the library called an **ESM Version**, which stands for ECMAScript Module.
+
+ECMAScript is another name for JS (ECMAScript = JavaScript).
+
+ESM Version: a version that works with JS Modules.
+
+## Default Export
+- Another way of exporting.
+- We can use it when we only want to export 1 thing.
+- Each file can only have 1 default export.
+
+## MVC
+The technique we just used (updating the data and then regenerating the HTML) is called MVC:
+1. Update the data.
+2. Regenerate all the HTML.
+
+MVC (Model - View - Controller) splits our code into 3 parts:
+1. **Model** = saves and manages the data.
+2. **View** = takes the data and displays it on the page.
+3. **Controller** = runs some code when we interact with the page.
+
+First we use the model to generate the view. Then, when we interact with the view, it runs the controller. The controller updates the model, and finally we use the updated model to regenerate the view.
+
+### The MVC loop
+
+```mermaid
+flowchart LR
+    M["<b>Model</b><br/>saves & manages the data"]
+    V["<b>View</b><br/>displays the data on the page"]
+    C["<b>Controller</b><br/>runs code when we interact"]
+
+    M -- "1. generates" --> V
+    V -- "2. interaction runs" --> C
+    C -- "3. updates" --> M
+```
+
+The loop never ends: every interaction goes View → Controller → Model → View again, so what's on the page is always regenerated from the data.
+
+### Example
+
+```js
+// MODEL - saves and manages the data
+let cart = [];
+
+function addToCart(name) {
+  cart.push({ name, quantity: 1 });
+}
+
+// VIEW - takes the data and displays it on the page
+function renderCart() {
+  let html = '';
+  cart.forEach((item) => {
+    html += `<div>${item.name} x ${item.quantity}</div>`;
+  });
+  document.querySelector('.js-cart').innerHTML = html;
+}
+
+// CONTROLLER - runs when we interact with the page
+document.querySelector('.js-add-button').addEventListener('click', () => {
+  addToCart('Socks');  // update the model
+  renderCart();        // regenerate the view
+});
+
+renderCart(); // first render: model -> view
+```
+
+Notice that the controller never edits the HTML directly. It only changes the data and then asks the view to regenerate, which is what keeps the page and the data in sync.
+
+MVC makes sure the page always matches the data. MVC is known as a design pattern.
